@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+  background-color: transparent !important;
+}
+
+#schedule-list {
+  color: var(--light);
+  font-size: 120%;
+}
+
+.error-text {
+  color: var(--red);
+  font-size: 120%;
+  text-align: left;
+}
+
+#schedule-list table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+#schedule-list td,
+th {
+  border: 2px solid #000;
+}
+
+.topleft {
+  border-top-left-radius: 1em;
+}
+
+.topright {
+  border-top-right-radius: 1em;
+}
+
+#schedule-list th {
+  background-color: var(--garnet);
+  padding: 3px;
+}
+
+#schedule-list td {
+  background-color: var(--background-color);
+  padding: 5px;
+}
+
+#schedule-list img {
+  width: auto;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  padding-left: 5px;
+}
