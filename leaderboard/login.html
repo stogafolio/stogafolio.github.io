@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Log in | Conestoga Computer Science Club</title>
+  <meta name="description"
+    content="The Conestoga Computer Science Club seeks to further students' interest and understanding of Computer Science through enriching experiences. We hold weekly meetings and host contests, hackathons, and more! Stop by after school on Mondays in room 2005.">
+  <meta name="theme-color" content="#eaaded">
+
+  <!--CSS re-used across stogacs.club -->
+  <link rel="stylesheet" href="/style/theme.css">
+  <link rel="stylesheet" href="/style/navbar.css">
+  <link rel="stylesheet" href="/style/leaderboard/leaderboard.css">
+
+  <!-- Load in page specific CSS -->
+  <link rel="stylesheet" href="/style/leaderboard/login.css">
+
+  <!--Scripts re-used across stogacs.club -->
+  <script src="/scripts/utils.js"></script>
+
+  <!-- Load in page scripts -->
+  <script src="/scripts/leaderboard/login.js"></script>
+
+  <!-- Load in external CSS Libraries -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+</head>
+
+<body>
+  <header>
+    <p class="navbar-title">Conestoga Computer Science Club</p>
+    <input type="checkbox" id="navbar-click">
+    <label for="navbar-click" class="navbar-toggle"><i class="fas fa-bars"></i></label>
+    <ul id="navbar-links">
+      <li><a href="/">Home</a></li>
+    </ul>
+  </header>
+  <section class="stack center-text center-form" class="screen pure-g">
+      <div>
+        <h1 class="center-text">Log in</h1>
+      </div>
+      <div id="login-cards" style="padding-top: 50px;">
+        <div class="card pure-g">
+          <div class="card-content">
+            <div>
+              <b class="center-text">Log in Options</b>
+            </div>
+            <img class="" style="padding:50px;" src="/media/misc/logo-hires.png"></img>
+            <div class="button-container">
+              <a href="https://cs-services.stoga.club/login">
+                <button type="button" id="discord-button" class="pure-button button-secondary">
+                  <div class="button-content">
+                    <img src="/media/misc/discord-mark-white.png" class="button-icon"></img>
+                    <p class="button-text">Log in or Create</p>
+                  </div>
+                </button>
+              </a>
+            </div>
+            <p class="button-label">Use a Code From Another Device</p>
+            <form id="login-code-entry" class="pure-form center-form" onsubmit="event.preventDefault();">
+              <fieldset>
+                <div class="pure-g" style="display:flex; align-items: center;">
+                  <div class="pure-control-group">
+                    <input id="login-code-for" type="text" placeholder="Login Code" required>
+                    <button id="submit-button" type="button" class="pure-button pure-button-primary"
+                      onclick="loginWithCode();">Submit</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+  </section>
+</body>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Presentations | Conestoga Computer Science Club</title>
+    <meta name="description" content="View upcoming and past presentations and sign up." />
+    <meta name="theme-color" content="#eaaded" />
+
+    <!--CSS re-used across stogacs.club -->
+    <link rel="stylesheet" href="/style/theme.css" />
+    <link rel="stylesheet" href="/style/navbar.css" />
+    <link rel="stylesheet" href="/style/main.css" />
+
+    <!-- Load in page specific CSS -->
+    <link rel="stylesheet" href="/style/presentations/presentation.css" />
+
+    <!-- Load in external CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Load external JS -->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <p class="navbar-title">Conestoga Computer Science Club</p>
+      <input type="checkbox" id="navbar-click" />
+      <label for="navbar-click" class="navbar-toggle"><i class="fas fa-bars"></i></label>
+      <ul id="navbar-links">
+        <li><a href="/">Home</a></li>
+      </ul>
+    </header>
+    <section id="signupDialog" class="modal-background">
+      <section class="box">
+        <h1 id="modal-title">Reserve your spot</h1>
+
+        <label for="dateSelect">Choose a day:</label>
+        <select name="date" id="dateSelect"></select>
+
+        <label for="timeSelect">Time Slot:</label>
+        <select name="time" id="timeSelect"> </select>
+
+        <label id="slot-status" class="text-loading"><b>Checking availability...</b></label>
+        <br /><br /><br />
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic" name="topic" /><br /><br />
+        <label for="presenters">Presenters:</label>
+        <input type="text" id="presenters" name="presenters" /><br /><br />
+        <p>
+          Please enter the names of all presenters, separated by commas. (e.g. John Smith, Jane
+          Doe). Include your name if you are presenting.
+        </p>
+        <br />
+        <br />
+        <label for="link">Presentation Link:</label>
+        <input type="text" id="link" name="link" /><br /><br />
+        <p>
+          Submit a view only link to your presentation here! (Google Slides, PowerPoint Online,
+          etc.)
+        </p>
+        <button id="submit" class="taken" onclick="register()">Submit</button>
+        <button class="color-cancel" onclick="destroySignup()">Cancel</button>
+      </section>
+    </section>
+
+    <section id="header">
+      <section id="title">
+        <h1 class="pure-u-1 center-text"><strong>Presentations</strong></h1>
+        <noscript>
+          <p class="center-text"> Please enable JavaScript to enable presentation functionality </p>
+        </noscript>
+        <p class="center-text">
+          Preview upcoming presentations, view past presentations, or sign up to present.
+        </p>
+      </section>
+
+      <section class="buttons">
+        <button onclick="makeSignup()">Sign Up</button>
+      </section>
+    </section>
+    <section id="upcoming-presentations" class="presentation-list">
+      <h2 class="pres-typ">Upcoming</h2>
+      <div class="pres-flex" id="upc-flex"></div>
+      <div id="no-upcoming" class="hidden">
+        <div class="pure-g">
+          <div class="pure-u-md-1-6"></div>
+          <div class="error-card pure-u-md-2-3">
+            <h1 class="center-text">No upcoming presentations.</h1> </div
+          ><div class="pure-u-md-1-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="past-presentations" class="presentation-list">
+      <h2 class="pres-typ">Past</h2>
+      <div class="pres-flex pas" id="pas-flex"></div>
+      <div id="no-past" class="hidden">
+        <div class="pure-g">
+          <div class="pure-u-md-1-6"></div>
+          <div class="error-card pure-u-md-2-3">
+            <h1 class="center-text">No past presentations.</h1> </div
+          ><div class="pure-u-md-1-6"></div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <!-- Load in page specific scripts -->
+  <script src="/scripts/utils.js"></script>
+  <script src="/scripts/navbar.js"></script>
+  <script src="/scripts/presentations/presentations.js"></script>
+</html>
