@@ -1,6 +1,3 @@
 User-agent: *
 # Prevent individual components of our logo from appearing on Google Images
 Disallow: /media/animated_logo/
-
-# Prevent schedule, timer, etc from being indexed.
-Disallow: /hackstoga/embed/

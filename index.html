@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Conestoga Computer Science Club</title>
+    <title>The Folio - Conestoga Literary Magazine</title>
     <meta
       name="description"
-      content="The Conestoga Computer Science Club seeks to further students' interest and understanding of Computer Science through enriching experiences. We hold weekly meetings and host contests, hackathons, and more! Stop by after school on Mondays in room 2005."
+      content="The Folio is a public forum for student expression produced by the students of Conestoga High School. A student-run literary and arts publication featuring creative writing, visual art, and podcasts."
     />
-    <meta name="theme-color" content="#eaaded" />
+    <meta name="theme-color" content="#8b7355" />
 
-    <!--CSS re-used across stogacs.club -->
+    <!--CSS re-used across site -->
     <link rel="stylesheet" href="/style/theme.css" />
     <link rel="stylesheet" href="/style/navbar.css" />
 
@@ -29,43 +29,194 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      .archive-button {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 12px 30px;
+        background-color: #6F4D38;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid #6F4D38;
+        cursor: pointer;
+      }
+      
+      .archive-button:hover {
+        background-color: #8b2b2b;
+        border-color: #8b2b2b;
+        color: white;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 43, 43, 0.3);
+      }
+
+      #photo-archive {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #f5ede4;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+      }
+
+      #photo-archive.active {
+        display: block;
+      }
+
+      .return-button {
+        display: block;
+        margin: 3rem auto 2rem;
+        padding: 12px 30px;
+        background-color: #6F4D38;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid #6F4D38;
+        cursor: pointer;
+        text-align: center;
+        max-width: 200px;
+      }
+      
+      .return-button:hover {
+        background-color: #8b2b2b;
+        border-color: #8b2b2b;
+        color: white;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 43, 43, 0.3);
+      }
+
+      .archive-banner {
+        width: 100%;
+        height: 300px;
+        background-image: url('/media/folio/pano-of-past-lit-mags2_orig.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3rem;
+        margin-top: 0;
+      }
+
+      .archive-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(37, 52, 79, 0.3), rgba(37, 52, 79, 0.6));
+      }
+
+      .archive-banner h2 {
+        position: relative;
+        color: #f5ede4;
+        font-size: 3.5rem;
+        font-weight: 600;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 0 5%;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .photo-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .photo-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      .photo-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .photo-caption {
+        padding: 1.5rem;
+        text-align: center;
+        color: #2c2c2c;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      @media (max-width: 768px) {
+        .photo-grid {
+          grid-template-columns: 1fr;
+          padding: 0 1rem;
+        }
+
+        .archive-banner {
+          height: 200px;
+        }
+
+        .archive-banner h2 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
-      <p class="navbar-title">Conestoga Computer Science Club</p>
+      <p class="navbar-title">The Folio</p>
       <input type="checkbox" id="navbar-click" />
       <label for="navbar-click" class="navbar-toggle"> <i class="fas fa-bars"> </i></label>
       <ul id="navbar-links">
-        <!--todo: add gallery some where?/ (MEDIA PAGE!)-->
-        <!--todo: add credits to README-->
+        <li><a href="/">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contacts">Contacts</a></li>
-        <li><a href="/resources">Resources</a></li>
-        <li>
-          <a href="/leaderboard">Shekels</a>
-        </li>
-        <li>
-          <a href="/hackstoga/">hackStoga</a>
-        </li>
-        <!--<li><a href="/gallery">Gallery</a></li>-->
-        <!--
-              When the Scratchathon, CodeFest, and hackStoga pages are completed, 
-              uncomment scripts/main.js so it can add the seasonal event to this navbar
-            -->
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/issues">Issues</a></li>
+        <li><a href="/podcast">Podcast</a></li>
+        <li><a href="/submit">Submit</a></li>
+        <li><a href="/apply">Apply</a></li>
+        <li><a href="/faq">FAQ</a></li>
       </ul>
     </header>
-    <section id="splash" class="screen">
-      <img class="logo-piece" id="base" src="/media/animated_logo/background.png" />
-      <img class="logo-piece" id="gold" src="/media/animated_logo/gold.png" />
-      <img class="logo-piece" id="laptop" src="/media/animated_logo/laptop.png" />
-      <img class="logo-piece" id="brackets" src="/media/animated_logo/brackets.png" />
-      <img class="logo-piece" id="scroll" src="/media/animated_logo/scroll.png" />
-      <p class="logo-piece" id="name"> Conestoga<br />Computer<br />Science Club </p>
-      <p id="banner-text">
-        Mondays after school in room
-        <span style="color: var(--offwhite)">2005</span>
-      </p>
+    <section id="splash" class="screen" style="background: url('/media/folio/Folio\ Header\ Background\ No\ Text.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-blend-mode: multiply; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; min-height: 100vh;">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <img src="/media/folio/Just Text WTTF.png" alt="Welcome to The Folio" style="max-width: 100%; height: auto; margin-bottom: 2rem; animation: fadeInDown 1.5s ease-out;" />
+        <p style="text-align: center; color: #f8f8f6; font-size: 1.3em; line-height: 1.6; animation: fadeInDown 2s ease-out 0.5s both;">
+          Welcome to The Folio, Conestoga High School's literary and art magazine. Every word and image is created by Conestoga students, capturing the depth of each author and writers' inner world.
+        </p>
+      </div>
     </section>
+
+    <style>
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
     <section id="about" class="screen pure-g">
       <div class="pure-u-md-1-1 formatting-separator"></div>
 
@@ -73,238 +224,84 @@
         <!-- formatting div PRE-->
       </div>
       <div class="textbox pure-u-md-11-24">
-        <h2>About Us</h2>
+        <h2>About The Folio</h2>
         <p>
-          <code>Hello World</code>, and welcome to the Conestoga Computer Science Club website! In
-          addition to our weekly meetings (on Mondays in room 2005), we organize a variety of events
-          throughout the year. Our flagship event is hackStoga (Stoga's annual hackathon), but we
-          also organize a Scratchathon, two CodeFests, and participate and sometimes win local
-          events. You should join our
-          <a href="https://schoology.tesd.net/group/812485279" target="_blank">Schoology group</a>!
+          We are a student-run literary and art publication from Conestoga High School. Although our name has been <i>The Folio</i> only since 2007, we have collected, compiled, designed, and published student-produced art and literature since 1967.
         </p>
+        <p>
+          In the issues tab above, take a moment to see how we have evolved!
+        </p>
+        <button class="archive-button" onclick="togglePhotoArchive()">View Photo Archive</button>
+      </div>
+      <div class="pure-u-md-1-24">
+        <!-- formatting div POST-->
+      </div>
+      <div class="textbox pure-u-md-10-24">
+        <h2>Reach Us</h2>
+          <p style="font-size: 110%;">
+          <a href="mailto:foliostoga@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a> — Reach us at <a href="mailto:foliostoga@gmail.com" target="_blank">foliostoga@gmail.com</a> for questions or inquiries<br /><br />
+          <a href="https://www.instagram.com/stogafolio/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a> — Follow us for updates, featured work, and submission announcements<br /><br />
+          <a><i class="fa-solid fa-user"></i> Get In Touch</a> — Find our <a href="/contact#managing-editors">managing editors</a>, <a href="/contact#literary-editors">literary editors</a>, <a href="/contact#art-editors">art editors</a>, <a href="/contact#business-managers">business managers</a>, and <a href="/contact#copy-editors">copy editors</a>
 
-        <div id="trailer">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/-6l0NWxp40k?autohide=1&modestbranding=0&rel=0"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
+        <div style="margin: 2rem 0;">
         </div>
       </div>
       <div class="pure-u-md-1-24">
         <!-- formatting div POST-->
-      </div>
-      <div id="accolades" class="textbox pure-u-md-10-24">
-        <h2>Wins</h2>
-        <p>
-          <a href="https://www.pclassic.org/" target="_blank">Philadelphia Classic</a><br />
-          <span class="tooltip"
-            >➔ Fall 1st Place Novice Division (2018)<tooltip
-              >Matt Gusdorff, Rohit Chatterjee, Mihir Dhamankar</tooltip
-            ></span
-          ><br />
-          <span class="tooltip"
-            >➔ Spring 1st Place Novice Division (2017)<tooltip
-              >Jason Tu, Isaac Singer, Gary Lu</tooltip
-            ></span
-          ><br />
-          <span class="tooltip"
-            >➔ Spring 2nd Place Novice Division (2015)<tooltip
-              >Jason Tu, Orion Forowycz, Aaron Lee</tooltip
-            ></span
-          ><br />
-          <span class="tooltip"
-            >➔ Spring Top 10 (2015)<tooltip
-              >Dennis Lee, Jeffrey Huang, Michael Tao, Narahari Bharadwaj</tooltip
-            ></span
-          ><br />
-          <span>➔ Spring Top 10 (2013)<br /></span>
-          <span class="tooltip"
-            >➔ 3rd Place (2012)<tooltip
-              >Jed Thompson, Jichao Sun, Scott Shi, Allen Zhu</tooltip
-            ></span
-          >
-        </p>
-        <p>
-          <a href="https://hackbca.com/" target="_blank">hackBCA</a><br />
-          <span class="tooltip"
-            >➔ Top 10 and Best Mobile App (2017)<tooltip
-              >Jason Tu, Jason Kim, Orion Forowycz</tooltip
-            ></span
-          ><br />
-        </p>
-        <p>
-          <a href="https://blueprint.hackmit.org/" target="_blank">MIT Blueprint</a><br />
-          <span class="tooltip"
-            >➔ Most Spirited (2018)<tooltip>Aaron Lee, Brady Monroe</tooltip></span
-          ><br />
-          <span class="tooltip"
-            >➔ Best Continued Hack (2017)<tooltip
-              >Jason Tu, Vikas Chelur, Michael Fan</tooltip
-            ></span
-          ><br />
-          <span class="tooltip"
-            >➔ 3rd Place Novice Division (2016)<tooltip
-              >Jason Tu, Jason Kim, Orion Forowycz, Aaron Lee</tooltip
-            ></span
-          ><br />
-        </p>
-        <p>
-          <a href="https://hackmhs.com/" target="_blank">hackMHS</a><br />
-          <span class="tooltip"
-            >➔ Best Usage of AWS (2016)<tooltip>Jason Tu, Richard Xu</tooltip></span
-          ><br />
-          <span class="tooltip"
-            >➔ Best Education Hack (2016)<tooltip>Jack Damasco, et al.</tooltip></span
-          ><br />
-        </p>
-        <p>
-          <a href="https://www.cs.swarthmore.edu/info/csnews/swatlocalhackday.html" target="_blank"
-            >Swarthmore College Local Hack Day</a
-          ><br />
-          <span class="tooltip"
-            >➔ Best Overall (2016)<tooltip
-              >Jason Tu, Michael Fan, Orion Forowycz, Richard Xu</tooltip
-            ></span
-          ><br />
-        </p>
-        <p>
-          <a href="https://www.cs.widener.edu/contest/" target="_blank"
-            >Widener Programming Competition</a
-          ><br />
-          <span class="tooltip">➔ Spring Top 10 (2022)</span><br />
-          <span class="tooltip">➔ 3rd Place (2015)</span><br />
-        </p>
-      </div>
-      <div class="pure-u-md-1-24">
-        <!-- formatting div POST-->
-      </div>
-      <div class="pure-u-md-1-1 formatting-separator"></div>
-      <div class="wavy-divider">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            class="shape-fill"
-          ></path>
-        </svg>
       </div>
     </section>
 
-    <section id="contacts" class="screen pure-g">
-      <div class="pure-u-md-1-1 formatting-separator"></div>
-      <div class="pure-u-md-1-24">
-        <!-- formatting div PRE-->
+    <section id="photo-archive">
+      <div class="archive-banner">
+        <h2>Photo Archive</h2>
       </div>
-      <div class="textbox pure-u-md-11-24">
-        <h2>Accounts</h2>
-        <p> We operate accounts on several sites, some of which are listed below: </p>
-        <p style="font-size: 110%">
-          <a href="mailto:stogacsclub@gmail.com" target="_blank"
-            ><i class="fa-solid fa-envelope"></i> Email</a
-          >
-          — If you want to shoot us an email, you can reach us at
-          <code>stogacsclub@gmail.com</code><br /><br />
-          <a href="https://github.com/stogacs" target="_blank"
-            ><i class="fa-brands fa-github"></i> Github</a
-          >
-          — Our GitHub organization page with all our repos (including
-          <a href="https://github.com/stogacs/website" target="_blank">this site</a>)<br /><br />
-          <a href="https://schoology.tesd.net/group/812485279" target="_blank"
-            ><i class="fa-solid fa-users"></i> Schoology</a
-          >
-          — You can join our Schoology group by clicking
-          <a href="https://schoology.tesd.net/enroll/group?code=MRV4S-28MM5" target="_blank"
-            >this link</a
-          >
-          or with the code <code>MRV4S-28MM5</code><br /><br />
-        </p>
-      </div>
-      <div class="pure-u-md-1-24">
-        <!-- formatting div POST-->
-      </div>
-      <div class="textbox pure-u-md-10-24" id="leadership">
-        <div class="pure-g leadership">
-          <h2>Leadership</h2>
-        </div>
-        <div class="pure-g officer">
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-4">
-            <img class="pure-img" src="/media/admins/26ZhangA.png" />
-          </div>
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-2">
-            <p>
-              <b style="font-size: 120%">Anthony Zhang</b><br />
-              Co-President
-            </p>
-          </div>
-          <div class="pure-u-1-12"></div>
-        </div>
-
-        <div class="pure-g officer">
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-4">
-            <img class="pure-img" src="/media/admins/26AroraP.png " />
-          </div>
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-2">
-            <p>
-              <b style="font-size: 120%">Prranit Arora</b><br />
-              Co-President
-            </p>
-          </div>
-          <div class="pure-u-1-12"></div>
-        </div>
-
-        <div class="pure-g officer">
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-4">
-            <img class="pure-img" src="/media/admins/26WuJ.png" />
-          </div>
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-2">
-            <p>
-              <b style="font-size: 120%">Justin Wu</b><br />
-              Vice President
-            </p>
-          </div>
-          <div class="pure-u-1-12"></div>
+      
+      <div class="photo-grid">
+        <div class="photo-card">
+          <img src="/media/folio/Folio Group Photo.webp" alt="The Folio Staff">
+          <div class="photo-caption">The Folio Staff 24-25</div>
         </div>
         
-        <div class="pure-g officer">
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-4">
-            <img class="pure-img" src="/media/admins/26ZhangR.png" />
-          </div>
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-2">
-            <p>
-              <b style="font-size: 120%">Ritchie Zhang</b><br />
-              Officer
-            </p>
-          </div>
-          <div class="pure-u-1-12"></div>
+        <div class="photo-card">
+          <img src="/media/folio/Screenshot 2026-01-10 at 3.14.20 PM.png" alt="Senior Sunrise '24">
+          <div class="photo-caption">Senior Sunrise '24</div>
         </div>
-
-        <div class="pure-g officer">
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-4">
-            <img class="pure-img" src="/media/admins/27MussaniI.png" />
-          </div>
-          <div class="pure-u-1-12"></div>
-          <div class="pure-u-1-2">
-            <p>
-              <b style="font-size: 120%">Issaam Mussani</b><br />
-              Officer
-            </p>
-          </div>
-          <div class="pure-u-1-12"></div>
+        
+        <div class="photo-card">
+          <img src="/media/folio/Screenshot 2026-01-10 at 3.12.55 PM.png" alt="Seniors of '22">
+          <div class="photo-caption">Seniors of '22</div>
         </div>
       </div>
-      <div class="pure-u-md-1-24">
-        <!-- formatting div POST-->
-      </div>
+      
+      <button class="return-button" onclick="togglePhotoArchive()">
+        <i class="fas fa-arrow-left"></i> Return to Home
+      </button>
     </section>
-    <script async defer src="/scripts/main.js"></script>
+    
+    <footer style="background-color: #2c2c2c; color: #f8f8f6; padding: 2rem 1rem; text-align: center; margin-top: 4rem;">
+      <p style="margin: 0 0 0.5rem 0; font-size: 0.85em; opacity: 0.7; color: #e6e1dd;">
+        Website made by Sukanya Menon, <a href="mailto:27menons@tesd.k12.net" style="color: #e6e1dd; text-decoration: none;">27menons@tesd.k12.net</a>
+      </p>
+      <p style="margin: 0; font-size: 0.95em;">
+        Rated <em>All American</em> by the National Scholastic Press Association | Ranked <em>Superior Magazine</em> by the National Council of Teachers of English | Awarded <em>Gold Rating</em> by the Pennsylvania School Press Association
+      </p>
+    </footer>
+
+    <script>
+      function togglePhotoArchive() {
+        const archive = document.getElementById('photo-archive');
+        archive.classList.toggle('active');
+        
+        if (archive.classList.contains('active')) {
+          // Scroll to top of photo archive
+          archive.scrollTop = 0;
+          // Prevent body scroll when archive is open
+          document.body.style.overflow = 'hidden';
+        } else {
+          // Re-enable body scroll
+          document.body.style.overflow = 'auto';
+        }
+      }
+    </script>
   </body>
 </html>

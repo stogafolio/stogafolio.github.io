@@ -1,41 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Noto+Sans+Math&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Noto+Sans+Math&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 :root {
-  --background-color: #212121;
-  --navbar-color: #121212;
-  --navbar-text: #fefefe;
-  --navbar-links: #0088a9;
+  /* Primary Palette - Rich & Sophisticated */
+  --background-color: #f5ede4;          /* Warm off-white inspired by Champagne */
+  --navbar-color: #25344f;              /* Space Cadet - deep navy blue */
+  --navbar-text: #d4c5b0;               /* Soft champagne for text */
+  --navbar-links: #b39f84;              /* Tan/champagne for links */
 
-  --anchor: #e83b3b;
-  --anchor-hover: #ae2334;
+  --anchor: #6F4D38;                    /* Coffee brown for links */
+  --anchor-hover: #8b2b2b;              /* Caput Mortuum burgundy on hover */
 
-  --tooltip: #0a0a0a;
-  --tooltip-underline: #0a0a0a;
-  --tooltip-text: #fefefe;
-  --badge: #7132feff;
+  --tooltip: #25344f;                   /* Space Cadet */
+  --tooltip-underline: #6F4D38;         /* Coffee */
+  --tooltip-text: #f5ede4;              /* Light cream */
+  --badge: #8b2b2b;                     /* Burgundy for badges */
 
-  --dark: #212121;
-  --darker: #121212;
-  --superdark: #0a0a0a;
-  --almond: #ffebcd;
-  --light: #fefefe;
-  --superlight: #ffffff;
-  --red: #e83b3b;
-  --darkred: #ae2334;
-  --orange: #f8a435;
-  --offwhite: #c7dcd0;
-  --magenta: #a884f3;
-  --indigo: #3e01fc;
-  --darkpurple: #2e222f;
-  --superdarkpurple: #251c26;
+  --dark: #2c3e3e;                      /* Moss green dark */
+  --darker: #1a1a1a;                    /* Deep onyx */
+  --superdark: #25344f;                 /* Space Cadet for dark sections */
+  --almond: #f5ede4;                    /* Champagne cream */
+  --light: #fefdfb;                     /* Warm white */
+  --superlight: #ffffff;                /* Pure white */
+  --red: #9d5353;                       /* Muted burgundy */
+  --darkred: #7a3333;                   /* Deep burgundy */
+  --superdarkred: #632024;              /* Caput Mortuum */
+  --orange: #d4a574;                    /* Original tan/orange */
+  --offwhite: #f5ede4;                  /* Champagne */
+  --magenta: #b8a0a0;                   /* Keep original */
+  --indigo: #617891;                    /* Slate gray */
+  --darkpurple: #3d3d3d;                /* Umber tone */
+  --superdarkpurple: #2c2c2c;           /* Deep umber */
 
-  --garnet: #8b2b2b;
+  --garnet: #8b2b2b;                    /* Burgundy */
 
-  --enchanted: #fc86fc;
-  --gold: #fede86;
-  --silver: #c0c0c0;
-  --bronze: #9f7a34;
+  /* Named Colors from Palette */
+  --space-cadet: #25344f;               /* Deep navy blue */
+  --slate-gray: #617891;                /* Cool gray */
+  --tan: #D5B893;                       /* Warm tan */
+  --coffee: #6F4D38;                    /* Rich brown */
+  --caput-mortuum: #632024;             /* Deep burgundy */
+  --midnight-blue: #2c3e50;             /* Dark blue */
+  --champagne: #b39f84;                 /* Golden tan */
+  --moss-green: #3d4f3d;                /* Forest green */
+  --onyx: #0c0c0c;                      /* Deep black */
+  --umber: #3d2b1f;                     /* Dark brown */
+  --burgundy: #8b2b2b;                  /* Wine red */
+
+  --enchanted: #b39f84;                 /* Champagne gold - sophisticated accent */
+  --gold: #D5B893;                      /* Tan gold - warm metallic */
+  --silver: #617891;                    /* Slate gray - cool metallic */
+  --bronze: #6F4D38;                    /* Coffee bronze - rich dark metallic */
+
+  /* Text and Background Variables */
+  --logo-text: #6F4D38;                 /* Coffee brown for logo */
+  --awards-background: #f5ede4;         /* Champagne cream background */
+  --awards-text: #2c2c2c;               /* Dark text for readability */
+  --contacts-background: #25344f;       /* Space Cadet navy */
+  --contacts-text: #d4c5b0;             /* Soft champagne text */
+  --account-background: #fefdfb;        /* Warm white for cards */
+  --banner-text: #d4c5b0;               /* Soft champagne for banner */
+  --folio-text: #2c2c2c;                /* Rich dark text */
 }
 
 * {
@@ -46,8 +78,9 @@
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Playfair Display', serif;
   background-color: var(--background-color);
+  color: var(--folio-text);
 }
 
 code {
@@ -349,6 +382,371 @@ a:hover {
   border-color: var(--darkred);
   color: var(--darkred);
 }
+
 .right-button {
   margin-left: 1em;
+}
+
+/* ===== NAVBAR SECTION ===== */
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 100vw;
+  background-color: var(--navbar-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+/* Modified badge for navbar */
+.badge-nav {
+  font-family: Inter;
+  position: relative;
+  bottom: 2px;
+  margin-left: 5px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--badge);
+  border-radius: 10px;
+}
+
+#navbar-click {
+  display: none;
+}
+
+#navbar-links li,
+#navbar-links li a,
+.navbar-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--navbar-text);
+}
+
+#navbar-links li {
+  display: inline-block;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#navbar-links li a {
+  transition: all 0.3s ease 0s;
+}
+
+#navbar-links li a:hover,
+.active {
+  color: var(--navbar-links) !important;
+}
+
+.navbar-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--champagne);
+}
+
+.navbar-toggle {
+  color: var(--navbar-text);
+  display: none;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+@media (max-width: 1250px) {
+  #navbar-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background-color: var(--navbar-color);
+    height: 100vh;
+    width: 100%;
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-toggle {
+    display: inline-block;
+  }
+
+  #navbar-click:not(:checked) ~ #navbar-links {
+    left: -100%;
+  }
+
+  #navbar-click:checked ~ #navbar-links {
+    left: 0%;
+  }
+
+  #navbar-click:checked ~ .navbar-toggle i:before {
+    content: '\f00d';
+  }
+
+  #navbar-links li {
+    display: block;
+    margin-top: 40px;
+  }
+
+  #navbar-links .dropdown {
+    position: relative;
+  }
+
+  #navbar-links .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--navbar-color);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+  }
+
+  #navbar-links .dropdown .dropdown-content a {
+    color: var(--navbar-text);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  #navbar-links .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+/* ===== SECTIONS ===== */
+@media screen and (min-width: 800px) {
+  .formatting-separator {
+    height: 100px;
+  }
+}
+
+#about {
+  background-color: #fefdfb;
+}
+
+.badge {
+  font-family: Inter;
+  position: relative;
+  bottom: 7px;
+  min-width: 10px;
+  margin-left: 5px;
+  padding: 3px 7px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--badge);
+  border-radius: 10px;
+}
+
+#contacts {
+  background-color: var(--contacts-background);
+  color: var(--contacts-text);
+}
+
+/* textbox */
+.textbox {
+  margin: inherit !important;
+  padding: inherit !important;
+  font-size: 130%;
+}
+
+.textbox > h1,
+h2,
+h3 {
+  margin: 1.5rem;
+  font-weight: 600;
+}
+
+.textbox > * {
+  margin: 1.5rem;
+}
+
+.leadership-card p,
+h2,
+h3 {
+  margin: 0.5rem;
+}
+
+.textbox p {
+  text-align: left;
+}
+
+/* animated logo */
+.logo-piece {
+  width: 20em;
+  position: absolute;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+#base {
+  animation: 1s ease-out 0s 1 spinny;
+}
+
+#scroll {
+  animation: 0.45s ease-out 0s 1 spinny-3;
+}
+
+#gold {
+  animation: 1s ease-out 0s 1 spinny-2;
+}
+
+#laptop {
+  animation: 0.5s ease-out 0s 1 spinny-3;
+}
+
+#brackets {
+  animation: 1s ease-out 0s 1 spinny;
+}
+
+#name {
+  color: var(--logo-text);
+  font-size: medium;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: type 3s steps(27, end) 0.51s 1 normal both;
+}
+
+#banner-text {
+  align-self: end;
+  font-weight: 500;
+  padding-bottom: 7em;
+  color: var(--banner-text);
+  font-size: large;
+}
+
+/* trailer embed */
+#trailer {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+#trailer > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+}
+
+/* awards section */
+#accolades {
+  background-color: var(--awards-background);
+  color: var(--awards-text);
+}
+
+#accolades > h2 {
+  text-align: center;
+}
+
+#accolades > p span {
+  font-size: smaller;
+}
+
+/* wavy divider */
+.wavy-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wavy-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  transform: translateY(2px);
+  height: 120px;
+}
+
+.wavy-divider .shape-fill {
+  fill: var(--contacts-background);
+}
+
+/* leadership cards */
+.officer {
+  background-color: var(--account-background);
+  width: 90%;
+  border-radius: 1rem;
+}
+
+.officer > .pure-u-1-4 > .pure-img {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 4rem;
+}
+
+.officer > .pure-u-1-2 {
+  display: flex;
+  align-items: center;
+}
+
+/* mobile */
+@media screen and (max-width: 800px) {
+  #accolades {
+    background-color: var(--superdark);
+    width: 100%;
+  }
+
+  .wavy-divider {
+    background-color: var(--superdark);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #accolades {
+    border-radius: 1rem;
+  }
+}
+
+/* animations */
+@keyframes spinny {
+  0% {
+    transform: scale(0.5, 0.5);
+  }
+
+  40% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes spinny-2 {
+  0% {
+    transform: scale(0.2, 0.2);
+  }
+
+  40% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes spinny-3 {
+  85% {
+    transform: scaleY(1.4);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 20rem;
+  }
 }
