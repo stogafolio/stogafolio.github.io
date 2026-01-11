@@ -1,13 +1,16 @@
+/* ===== TEXT COLORS & BACKGROUNDS ===== */
 :root {
-  --logo-text: #1ebc73;
+  --logo-text: #6F4D38;                 /* Coffee brown for logo */
 
-  --awards-background: #212121;
-  --awards-text: #fefefe;
+  --awards-background: #f5ede4;         /* Champagne cream background */
+  --awards-text: #2c2c2c;               /* Dark text for readability */
 
-  --contacts-background: #212121;
-  --contacts-text: #fefefe;
+  --contacts-background: #25344f;       /* Space Cadet navy */
+  --contacts-text: #d4c5b0;             /* Soft champagne text */
 
-  --account-background: #121212;
+  --account-background: #fefdfb;        /* Warm white for cards */
+  
+  --banner-text: #d4c5b0;               /* Soft champagne for banner */
 }
 
 /* screens */
@@ -18,7 +21,7 @@
 }
 
 #about {
-  background-color: var(--light);
+  background-color: #fefdfb;
 }
 
 .badge {
